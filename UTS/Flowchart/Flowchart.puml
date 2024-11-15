@@ -1,0 +1,52 @@
+@startuml pembayaran_sekolah_flowchart
+title Flowchart Aplikasi Pembayaran Sekolah
+
+start
+
+:Buka Aplikasi;
+
+:Masukkan Email dan Password;
+
+if (Email dan Password Valid?) then (Ya)
+    if (Admin?) then (Ya)
+        :Login Sebagai Admin;
+        :Akses Manajemen Pembayaran;
+        :Pilih Aksi;
+        if (Aksi = Tambah Pembayaran) then (Tambah Pembayaran)
+            :Masukkan Detail Pembayaran;
+            :Simpan Pembayaran;
+        elseif (Aksi = Edit Pembayaran) then (Edit Pembayaran)
+            :Pilih Pembayaran yang Akan Diedit;
+            :Perbarui Detail Pembayaran;
+            :Simpan Perubahan;
+        elseif (Aksi = Hapus Pembayaran) then (Hapus Pembayaran)
+            :Pilih Pembayaran yang Akan Dihapus;
+            :Hapus Pembayaran;
+        elseif (Aksi = Lihat Daftar Pembayaran) then (Lihat Pembayaran)
+            :Tampilkan Daftar Pembayaran;
+        elseif (Aksi = Lihat Riwayat Pembayaran) then (Lihat Riwayat)
+            :Tampilkan Riwayat Pembayaran;
+        endif
+        :Logout;
+    elseif (SuperAdmin?) then (Ya)
+        :Login Sebagai SuperAdmin;
+        :Akses Manajemen Pengguna;
+        :Pilih Aksi;
+        if (Aksi = Tambah Pengguna) then (Tambah Pengguna)
+            :Masukkan Detail Pengguna;
+            :Simpan Pengguna;
+        elseif (Aksi = Assign Role Pengguna) then (Assign Role)
+            :Pilih Pengguna;
+            :Tentukan Role;
+            :Simpan Perubahan;
+        endif
+        :Logout;
+    endif
+else (Tidak)
+    :Tampilkan "Email atau Password Tidak Valid";
+    :Kembali ke Halaman Login;
+endif
+
+stop
+
+@enduml

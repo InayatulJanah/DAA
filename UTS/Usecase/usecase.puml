@@ -1,0 +1,42 @@
+@startuml pembayaran_sekolah
+actor Admin
+actor SuperAdmin
+
+usecase "Input Email dan Password" as UC1
+usecase "Cek Kredensial" as UC2
+usecase "Login Gagal" as UC3
+usecase "Login Admin" as UC4
+usecase "Login Super Admin" as UC5
+usecase "Akses Manajemen Pembayaran" as UC6
+usecase "Tambah Pembayaran" as UC7
+usecase "Edit Pembayaran" as UC8
+usecase "Hapus Pembayaran" as UC9
+usecase "Lihat Daftar Pembayaran" as UC10
+usecase "Akses Riwayat Pembayaran" as UC11
+usecase "Akses Manajemen Pengguna" as UC12
+usecase "Tambah Pengguna" as UC13
+usecase "Assign Role Pengguna" as UC14
+usecase "Logout" as UC15
+
+Admin --> UC1
+SuperAdmin --> UC1
+UC1 --> UC2
+UC2 --> UC3: tidak valid
+UC3 --> UC1
+
+UC1 --> UC4: valid
+UC4 --> UC6
+UC6 --> UC7: include
+UC6 --> UC8: include
+UC6 --> UC9: include
+UC6 --> UC10
+UC6 --> UC11: include
+UC4 --> UC15: extend
+
+UC1 --> UC5: valid
+UC5 --> UC12
+UC12 --> UC13: include
+UC12 --> UC14: include
+UC5 --> UC15: extend
+
+@enduml
