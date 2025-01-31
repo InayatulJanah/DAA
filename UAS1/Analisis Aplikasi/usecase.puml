@@ -1,0 +1,58 @@
+@startuml
+
+actor "Pelatih" as Coach
+actor "Pemain" as Player
+actor "Orang Tua" as Parent
+actor "Manajemen Akademi" as AcademyManagement
+actor "Staf Pendukung" as SupportStaff
+
+usecase "Registrasi & Login" as UC1
+usecase "Pencatatan Data Pemain" as UC2
+usecase "Menyusun Jadwal Latihan" as UC3
+usecase "Mengevaluasi Performa Pemain" as UC4
+usecase "Pemantauan Perkembangan Pemain" as UC5
+usecase "Komunikasi dengan Orang Tua" as UC6
+usecase "Pemberitahuan Notifikasi" as UC7
+usecase "Mengakses Laporan Perkembangan" as UC8
+usecase "Pencarian Bibit Muda" as UC9
+usecase "Melihat Jadwal Latihan" as UC10
+usecase "Mengunggah Video Latihan" as UC11
+usecase "Mengakses Kurikulum Latihan" as UC12
+usecase "Memberikan Feedback Real-Time" as UC13
+usecase "Mencatat Data Perangkat Wearable" as UC14
+usecase "Pemberitahuan Jadwal Latihan dan Uji Coba" as UC15
+
+Coach --> UC1
+Coach --> UC2
+Coach --> UC3
+Coach --> UC4
+Coach --> UC5
+Coach --> UC6
+Coach --> UC13
+Coach --> UC12
+
+Player --> UC1
+Player --> UC10
+Player --> UC11
+Player --> UC5
+Player --> UC13
+
+Parent --> UC1
+Parent --> UC8
+Parent --> UC6
+
+AcademyManagement --> UC1
+AcademyManagement --> UC5
+AcademyManagement --> UC8
+AcademyManagement --> UC9
+
+SupportStaff --> UC1
+SupportStaff --> UC10
+SupportStaff --> UC7
+SupportStaff --> UC15
+
+UC9 --> UC2
+UC5 --> UC14
+UC5 --> UC4
+
+@enduml

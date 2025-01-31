@@ -1,0 +1,33 @@
+@startuml
+
+start
+
+:Registrasi & Login;
+:Pengguna memilih peran (Pelatih, Pemain, Orang Tua);
+:Pengguna mengisi data profil;
+if (Apakah data valid?) then (ya)
+  :Login berhasil;
+else (tidak)
+  :Tampilkan pesan kesalahan;
+  stop
+endif
+
+:Pengguna memilih fitur yang diinginkan;
+:Jika pemain, unggah video latihan dan hasil tes fisik;
+:Jika pelatih, lihat kurikulum dan buat jadwal latihan;
+:Pelatih memberikan feedback kepada pemain;
+:Data wearable dikirim untuk analisis AI;
+
+:AI menganalisis performa pemain;
+:Pelatih menyusun latihan berdasarkan analisis AI;
+:Pemantauan perkembangan dilakukan dalam aplikasi;
+
+if (Orang Tua?) then (ya)
+  :Orang Tua melihat laporan perkembangan pemain;
+  :Orang Tua menerima notifikasi terkait jadwal latihan;
+endif
+
+:Pelatih, pemain, dan orang tua berkomunikasi melalui aplikasi;
+stop
+
+@enduml
